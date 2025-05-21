@@ -21,7 +21,7 @@ z_rot = y_cyl;
 
 % Zeichne den Radzylinder
 surf(x_rot + x, y_rot + y, z_rot + z, ...
-    'FaceColor', 'k', 'EdgeColor', 'none');
+    'FaceColor', 'k', 'EdgeColor', 'none')
 end
 
 

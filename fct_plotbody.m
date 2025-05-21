@@ -1,5 +1,3 @@
-%Braucht 4 Argumente Koordinaten(x,y) und Länge, Breite
-
 function fct_plotbody(x, y, z, l, b, h)
 %FCT_PLOTBODY_3D Zeichnet den Körper (Quader) in 3D
 % (x, y, z): Startpunkt (untere linke Ecke unten)
@@ -21,6 +19,6 @@ faces = [
 ];
 
 patch('Vertices', [X' Y' Z'], 'Faces', faces, ...
-      'FaceColor', [0.6 0.8 1], 'EdgeColor', 'k', 'FaceAlpha', 0.7);
+      'FaceColor', [0.6 0.8 1], 'EdgeColor', 'k', 'FaceAlpha', 0.7)
 hold on;
 end

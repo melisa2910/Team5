@@ -16,7 +16,7 @@ fct_plotwheel(x,     y+b,    z, r, w, pi/2); % hinten links
 
 
 
-%axis equal;
+
 xlabel('X [m]'); ylabel('Y [m]'); zlabel('Z [m]');
 title('3D-Fahrzeug mit Quader und Rädern');
 view(3); 
