@@ -11,9 +11,11 @@ function map = fct_markCircularObstacle(map, x_center, y_center, radius)
             cell_x = x - 0.5;
             cell_y = y - 0.5;
 
-            % euklidischer Abstand Zellenmittelpunkt - Hindernismittelpunkt
+            % Abstand Zellenmittelpunkt - Hindernismittelpunkt
             dist = sqrt((cell_x - x_center)^2 + (cell_y - y_center)^2);
-
+            
+            % Zählt nur als Belegt, wenn Radius mittelpunkt der Zelle
+            % erreicht
             if dist <= radius
                 map(y, x) = 1;
             end
