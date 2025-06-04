@@ -18,7 +18,7 @@ z = 1;      % Höhe im Raum
 
 
 % Initialisierung Anfangszustände
-dtheta = ones(4,1);
+dthetas = ones(4,1);
 
 phi = ones(4,1);
 
