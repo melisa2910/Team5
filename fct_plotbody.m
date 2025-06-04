@@ -1,6 +1,6 @@
 %Braucht 4 Argumente Koordinaten(x,y) und Länge, Breite
 
-function fct_plotbody(x, y, z, l, b, h)
+function hBody = fct_plotbody(x, y, z, l, b, h)
 %FCT_PLOTBODY_3D Zeichnet den Körper (Quader) in 3D
 % (x, y, z): Startpunkt (untere linke Ecke unten)
 % l: Länge, b: Breite, h: Höhe
@@ -20,7 +20,11 @@ faces = [
     4 1 5 8   % Seite links
 ];
 
-patch('Vertices', [X' Y' Z'], 'Faces', faces, ...
-      'FaceColor', [0.6 0.8 1], 'EdgeColor', 'k', 'FaceAlpha', 0.7);
-hold on;
+    % Patch erzeugen und Handle speichern
+    hBody = patch('Vertices', [X' Y' Z'], 'Faces', faces, ...
+                  'FaceColor', [0.6 0.8 1], 'EdgeColor', 'k', 'FaceAlpha', 0.7);
+    % Tag setzen, damit dieser Body später gezielt gelöscht werden kann
+    set(hBody, 'Tag', 'vehicle');
+
+    hold on;
 end
