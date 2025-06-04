@@ -1,23 +1,21 @@
-function map = fct_markCircularObstacle(map, x_center, y_center, radius)
+function map = fct_markCircularObstacle(map, x_center, y_center, radius, cellSize)
 % Funktion zur Eintragung von Hindernissen in die Rastermap
 % Rastermap wird für Pfadplannung benötigt
 
     [rows, cols] = size(map);
 
-    % Schleife über alle Zellen
-    for x = 1:cols
-        for y = 1:rows
-            % Mittelpunkt der Zelle (1x1 Zellen)
-            cell_x = x - 0.5;
-            cell_y = y - 0.5;
-
-            % Abstand Zellenmittelpunkt - Hindernismittelpunkt
-            dist = sqrt((cell_x - x_center)^2 + (cell_y - y_center)^2);
+    for row = 1:rows
+        for col = 1:cols
             
-            % Zählt nur als Belegt, wenn Radius mittelpunkt der Zelle
-            % erreicht
+            % Berechne reale Koordinaten des Zellenmittelpunkts
+            cell_x = (col - 0.5) * cellSize;
+            cell_y = (row - 0.5) * cellSize;
+
+            % Abstand vom Zellenmittelpunkt zum Hindernismittelpunkt
+            dist = sqrt((cell_x - x_center)^2 + (cell_y - y_center)^2);
+
             if dist <= radius
-                map(y, x) = 1;
+                map(row, col) = 1;
             end
         end
     end
