@@ -45,7 +45,7 @@ zlim([0 5]);
 
 % Rastermap für Pfadplannung vorbereiten
 
-% Auflösung der Rastermap 
+% Auflösung der Rastermap [m]
 cellSize = 0.5;
 
 % [Zeilen, Spalten] der Matrix
@@ -103,7 +103,7 @@ fct_plot_start_end(start_pos, end_pos);
 start_cell = round(start_pos(1:2) / cellSize);
 goal_cell  = round(end_pos(1:2) / cellSize);
 
-disp('Starte Pfadplanung mit BFS...');
+% Speichern des gefundenen Pfad
 path = bfs_pathfinding(map, start_cell, goal_cell);
 
 % Pfad plotten, wenn gefunden
