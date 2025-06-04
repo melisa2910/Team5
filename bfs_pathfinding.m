@@ -1,8 +1,12 @@
 function path = bfs_pathfinding(map, start_pos, end_pos)
 
     % Rundung der Start- und Endposition auf ganze Zahlen
-    start_cell = round(start_pos(1:2));
-    goal_cell = round(end_pos(1:2));
+    
+    start_cell = start_pos(1:2);
+    goal_cell = end_pos(1:2);
+    
+    % start_cell = round(start_pos(1:2));
+    % goal_cell = round(end_pos(1:2));
     
     % Initialisierung
     [rows, cols] = size(map);
@@ -25,12 +29,14 @@ function path = bfs_pathfinding(map, start_pos, end_pos)
             found = true;
             break;
         end
-
+        
+        % Besuchen aller Nachbarzellen
         for i = 1:4
             neighbor = current + directions(i, :);
             x = neighbor(1);
             y = neighbor(2);
 
+            % Prüfung ob Zelle gültig
             if x > 0 && x <= cols && y > 0 && y <= rows
                 if ~visited(y, x) && map(y, x) == 0
                     queue(end+1,:) = neighbor; % enqueue
@@ -46,6 +52,7 @@ function path = bfs_pathfinding(map, start_pos, end_pos)
         path = goal_cell;
         while ~isequal(path(1,:), start_cell)
             current = path(1,:);
+            % von welcher Zelle bin ich gekommen;
             prev_cell = squeeze(prev(current(2), current(1), :))';
             path = [prev_cell; path];
         end
