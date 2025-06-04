@@ -1,6 +1,6 @@
 %Braucht 4 Argumente Koordinaten(x,y), Psi und Radius
 
-function fct_plotwheel(x, y, z, r, w, psi)
+function hWheel = fct_plotwheel(x, y, z, r, w, psi)
 %FCT_PLOTWHEEL_3D Zeichnet ein Rad als Zylinder in 3D mit stehender Ausrichtung
 % (x, y, z): Mittelpunkt
 % r: Radius, w: Breite (zylinderlänge), psi: Rotation (um die Radachse)
@@ -16,12 +16,17 @@ x_rot = x_cyl;
 y_rot = z_cyl;
 z_rot = y_cyl;
 
-% Optional: zusätzlich Drehung um psi um y-Achse (Radlenkung z.B.)
-% (nicht notwendig, wenn psi = 0)
 
 % Zeichne den Radzylinder
-surf(x_rot + x, y_rot + y, z_rot + z, ...
-    'FaceColor', 'k', 'EdgeColor', 'none');
+    hWheel = surf( ...
+        x_rot + x, ...
+        y_rot + y, ...
+        z_rot + z, ...
+        'FaceColor', 'k', ...
+        'EdgeColor', 'none' ...
+    );
+    % Damit kannst du später gezielt nur alle Räder/Fahrzeug-Objekte löschen:
+    set(hWheel, 'Tag', 'vehicle');
+    
+    hold on;
 end
-
-
