@@ -1,4 +1,4 @@
-function path = bfs_pathfinding(map, start_pos, end_pos)
+function result_path = bfs_pathfinding(map, start_pos, end_pos)
 
     % Rundung der Start- und Endposition auf ganze Zahlen
     
@@ -49,15 +49,15 @@ function path = bfs_pathfinding(map, start_pos, end_pos)
 
     % Rückverfolgung Pfad
     if found
-        path = goal_cell;
-        while ~isequal(path(1,:), start_cell)
-            current = path(1,:);
+        result_path = goal_cell;
+        while ~isequal(result_path(1,:), start_cell)
+            current = result_path(1,:);
             % von welcher Zelle bin ich gekommen;
             prev_cell = squeeze(prev(current(2), current(1), :))';
-            path = [prev_cell; path];
+            result_path = [prev_cell; result_path];
         end
     else
-        path = [];
+        result_path = [];
         disp('Kein Pfad gefunden!');
     end
 end
