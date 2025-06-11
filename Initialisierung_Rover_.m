@@ -22,16 +22,18 @@ dthetas = ones(4,1);
 
 phi = ones(4,1);
 
-dq = zeros(3,1);
-
 q0 = zeros(3,1);
+
+% i_in = 1;
+
+q = zeros(3,1);
 
 
 %% Initialisierung der Umgebung und der Map
 
 % Variablen zum setzen von x und y (werden auch für Rastermap verwendet)
-xlim_end = 20;
-ylim_end = 20;
+xlim_end = 40;
+ylim_end = 40;
 
 % Rastermap für Pfadplannung vorbereiten
 
@@ -50,7 +52,10 @@ safety = b / 2;
 % absichern
 
 start_pos = [1, 1, 0];
-end_pos   = [8, 10, 0];
+
+end_pos   = [1, 30, 0];
+
+
 
 % Parameter und Funktionen für Hindernisse
 
