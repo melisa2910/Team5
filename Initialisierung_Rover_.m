@@ -8,8 +8,8 @@ close all;
 % Simulationszeit
 simTime = 10;
 
-l = 2;  % [m]       Länge Rover Körper
-b = 1;  % [m]       Breite Rover Körper
+l = 2;  % [m]         Länge Rover Körper
+b = 1;  % [m]         Breite Rover Körper
 h = 0.5;  % [m]       Höhe Rover Körper
 r = 0.2;  % [m]       Rad Radius
 w = 0.2;  % [m]       Breite der Räder
@@ -52,7 +52,10 @@ safety = b / 2;
 % absichern
 
 start_pos = [1, 1, 0];
+
 end_pos   = [1, 30, 0];
+
+
 
 % Parameter und Funktionen für Hindernisse
 
