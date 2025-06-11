@@ -22,11 +22,11 @@ dthetas = ones(4,1);
 
 phi = ones(4,1);
 
-dq = zeros(3,1);
-
 q0 = zeros(3,1);
 
 i_in = 1;
+
+q = zeros(3,1);
 
 
 %% Initialisierung der Umgebung und der Map
