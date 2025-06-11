@@ -38,7 +38,7 @@ ylim_end = 40;
 % Rastermap für Pfadplannung vorbereiten
 
 % Auflösung der Rastermap [m]
-cellSize = 0.5;
+cellSize = 1.0;
 
 % [Zeilen, Spalten] der Matrix
 mapSize = [ylim_end, xlim_end] / cellSize;
@@ -53,7 +53,7 @@ safety = b / 2;
 
 start_pos = [1, 1, 0];
 
-end_pos   = [1, 30, 0];
+end_pos   = [30, 30, 0];
 
 
 
