@@ -24,7 +24,7 @@ phi = ones(4,1);
 
 q0 = zeros(3,1);
 
-i_in = 1;
+% i_in = 1;
 
 q = zeros(3,1);
 
@@ -52,7 +52,7 @@ safety = b / 2;
 % absichern
 
 start_pos = [1, 1, 0];
-end_pos   = [30, 30, 0];
+end_pos   = [1, 30, 0];
 
 % Parameter und Funktionen für Hindernisse
 
