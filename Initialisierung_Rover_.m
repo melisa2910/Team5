@@ -53,7 +53,7 @@ safety = b / 2;
 
 start_pos = [1, 1, 0];
 
-end_pos   = [1, 30, 0];
+end_pos   = [30, 30, 0];
 
 
 
