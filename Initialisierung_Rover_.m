@@ -48,14 +48,10 @@ map = zeros(mapSize);
 safety = b / 2;
 
 % Start- und Endpunkt [X,Y,Z]
-% Evtl. Belegung von Start und Ziel auf einem Hindernis mit if-Abfrage
-% absichern
 
-start_pos = [1, 1, 0];
+start_pos = [15, 11, 0];
 
-end_pos   = [30, 30, 0];
-
-
+end_pos   = [15, 30, 0];
 
 % Parameter und Funktionen für Hindernisse
 
@@ -77,7 +73,28 @@ map = fct_markCircularObstacle(map, X_value_obs(3), Y_value_obs(3), r_obs(3) + s
 start_cell = round(start_pos(1:2) / cellSize);
 goal_cell  = round(end_pos(1:2) / cellSize);
 
-% Speichern des gefundenen Pfad
-result_path = bfs_pathfinding(map, start_cell, goal_cell);
+% Überprüfung, ob Startpunkt und Endpunkt in einem Hindernis liegen
+
+% Sicherheitsabstand berechnen
+r_total = r_obs + safety;
+
+% Abstände von Startpunkt zu allen Hindernissen
+d_start = sqrt((start_pos(1) - X_value_obs).^2 + (start_pos(2) - Y_value_obs).^2);
+
+% Abstände von Endpunkt zu allen Hindernissen
+d_end = sqrt((end_pos(1) - X_value_obs).^2 + (end_pos(2) - Y_value_obs).^2);
+
+% Prüfen ob innerhalb eines Hindernisses
+start_in_obstacle = any(d_start <= r_total);
+end_in_obstacle = any(d_end <= r_total);
+
+if start_in_obstacle || end_in_obstacle
+    errordlg(sprintf(['Start oder Ziel liegen in einem Hindernis!' ...
+        '\nBitte Überprüfen und korrigieren.'], 'Hinderniswarnung'));
+else
+    result_path = bfs_pathfinding(map, start_pos, end_pos);
+     helpdlg(sprintf(['Pfad erfolgreich erstellt.' ...
+        '\n=> Weiter in Simulink.'], 'Successful'));
+end
 
 
