@@ -5,9 +5,6 @@ function result_path = bfs_pathfinding(map, start_pos, end_pos)
     start_cell = start_pos(1:2);
     goal_cell = end_pos(1:2);
     
-    % start_cell = round(start_pos(1:2));
-    % goal_cell = round(end_pos(1:2));
-    
     % Initialisierung
     [rows, cols] = size(map);
     visited = false(rows, cols);
