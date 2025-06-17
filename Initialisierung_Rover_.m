@@ -24,8 +24,6 @@ phi = ones(4,1);
 
 q0 = zeros(3,1);
 
-% i_in = 1;
-
 q = zeros(3,1);
 
 
@@ -49,7 +47,7 @@ safety = b / 2;
 
 % Start- und Endpunkt [X,Y,Z]
 
-start_pos = [15, 11, 0];
+start_pos = [10, 1, 0];
 
 end_pos   = [15, 30, 0];
 
@@ -78,10 +76,10 @@ goal_cell  = round(end_pos(1:2) / cellSize);
 % Sicherheitsabstand berechnen
 r_total = r_obs + safety;
 
-% Abstände von Startpunkt zu allen Hindernissen
+% Abstand von Startpunkt zu allen Hindernissen
 d_start = sqrt((start_pos(1) - X_value_obs).^2 + (start_pos(2) - Y_value_obs).^2);
 
-% Abstände von Endpunkt zu allen Hindernissen
+% Abstand von Endpunkt zu allen Hindernissen
 d_end = sqrt((end_pos(1) - X_value_obs).^2 + (end_pos(2) - Y_value_obs).^2);
 
 % Prüfen ob innerhalb eines Hindernisses
@@ -92,7 +90,7 @@ if start_in_obstacle || end_in_obstacle
     errordlg(sprintf(['Start oder Ziel liegen in einem Hindernis!' ...
         '\nBitte Überprüfen und korrigieren.'], 'Hinderniswarnung'));
 else
-    result_path = bfs_pathfinding(map, start_pos, end_pos);
+    result_path = bfs_pathfinding(map, start_cell, goal_cell);
      helpdlg(sprintf(['Pfad erfolgreich erstellt.' ...
         '\n=> Weiter in Simulink.'], 'Successful'));
 end
