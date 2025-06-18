@@ -47,7 +47,7 @@ safety = b / 2;
 
 % Start- und Endpunkt [X,Y,Z]
 
-start_pos = [10, 1, 0];
+start_pos = [20, 15, 0];
 
 end_pos   = [15, 30, 0];
 
