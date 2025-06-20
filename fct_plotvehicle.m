@@ -1,4 +1,3 @@
-
 %FCT_PLOTVEHICLE_3D Zeichnet ein 3D-Fahrzeug mit Quader + 4 Rädern
 function hVeh = fct_plotvehicle(x, y, z, l, b, h, r, w)
 
