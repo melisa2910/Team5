@@ -1,7 +1,7 @@
 README zur Nutzung der Matlab Simulation
 
 Vorraussetzung zur Ausführung sind: 
-Klonen des Repositories 
+Klonen des Repositories (Branch: main)
 Matlab starten (Version mind. 2023b)
 
 
